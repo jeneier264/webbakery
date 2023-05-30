@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi&family=Sen&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Tailwind Styles */
+.boxWidth {
+  @apply xl:max-w-[1280px] w-full;
+}
+
+.navDesktop {
+  @apply flex flex-row justify-between h-[90px] w-full p-6 items-center sm:flex hidden;
+}
+
+.navMobile {
+  @apply sm:hidden flex relative;
+}
+
+.navlinks {
+  @apply font-sen text-[14px] cursor-pointer;
+}
+
+.footer {
+  @apply font-sen text-[14px] p-6 bottom-0;
+}
+
+.title {
+  @apply font-reem text-[50px] text-center font-bold text-contrast1;
+}
+
+.paragraph {
+  @apply font-sen text-[14px];
+}
+
+.bakewareWidget {
+  @apply w-[250px] h-[200x] flex flex-col p-3 m-2;
+}
+
+.productWidget {
+  @apply w-[250px] h-[200x] flex flex-col p-3 m-2;
+}
+
+.grid1 {
+  @apply grid grid-cols-3 justify-items-center p-8;
+}
+
+.addButton {
+  @apply bg-transparent p-2 h-[37px] border border-contrast1 rounded-full font-sen text-[13px] items-center;
+}
+
+.addCount {
+  @apply flex flex-row justify-between p-3 h-[37px] w-[100px] border border-contrast1 rounded-full items-center font-sen text-[18px]
+}
+
+.logLabel {
+  @apply font-sen text-[13px];
+}
+
+.logInput {
+  @apply first-letter:block w-full resize-none font-sen text-[15px] px-4 py-2  mb-3 text-neutral-800 bg-transparent border-b border-black  focus:outline-none;
+}
+
+.logInput2 {
+  @apply first-letter:block w-[150px] flex justify-start resize-none font-sen text-[15px] px-4 py-2 mb-3 text-neutral-800 bg-transparent border-b border-black  focus:outline-none;
+}
+
+.logButton {
+  @apply flex justify-between items-center px-5 py-3 w-[110px] font-sen text-[13px] text-black transition-colors duration-200 transform bg-white border border-black rounded-full hover:bg-black hover:text-primary focus:outline-none focus:bg-neutral-600;
+}
+
+.dropdownNav {
+  @apply absolute font-sen text-center right-0 top-full mt-3 p-5 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
+}
+
+.dropdownProd {
+  @apply absolute font-sen z-10 text-center right-0 top-10 p-2 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
+}
+
+.dropdownEquip {
+  @apply absolute font-sen z-10 overflow-auto h-[150px] text-center w-full right-0 top-full p-2 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
+}
+
+.form1 {
+  @apply flex flex-col justify-center w-1/2 items-center
+}
