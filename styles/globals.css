@@ -78,7 +78,7 @@ input::-webkit-inner-spin-button {
 }
 
 .grid1 {
-  @apply grid grid-cols-3 justify-items-center p-8;
+  @apply grid  sm:grid-cols-3 grid-cols-2 justify-items-center gap-x-12 p-8;
 }
 
 .addButton {
@@ -119,4 +119,30 @@ input::-webkit-inner-spin-button {
 
 .form1 {
   @apply flex flex-col justify-center w-1/2 items-center
+}
+
+.writing-vertical {
+  writing-mode: vertical-lr; /* or vertical-rl for right-to-left vertical text */
+  text-orientation: upright;
+  @apply font-sen text-primary;
+}
+
+.shadow {
+  box-shadow: 9px 0px 15px 0px rgba(0,0,0,0.1);
+}
+
+.animate {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

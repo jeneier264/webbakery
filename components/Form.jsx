@@ -93,6 +93,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   useEffect(() => {
     if (products.length > 1) setPost({...post, products: products})
   }, [products]);
+  
 
   return (
     <section className="w-full">

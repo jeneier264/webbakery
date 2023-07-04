@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     },
     image: {
         type: String,
-      }
+    },
+    shoplist: {
+        type: Array,
+        default: [],
+    }
 })
 
 const User = models.User || model("User", UserSchema);

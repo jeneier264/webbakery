@@ -4,9 +4,6 @@ import { useSession } from "next-auth/react";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { useState } from "react";
 
-const navLinks1 = ["bakeware", "products"];
-const navLinks2 = ["feed", "account"];
-
 const Nav = () => {
   const { data: session } = useSession();
   const [toggle, setToggle] = useState(false);
