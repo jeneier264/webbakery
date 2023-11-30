@@ -1,8 +1,8 @@
 import Image from "next/image";
 import "@styles/globals.css";
 import Search from "@components/Search";
-import cakes from "@public/assets/cakes.png";
-import cooking2 from "@public/assets/cooking2.jpg";
+import cakes from "/public/assets/cakes.png";
+import cooking2 from "/public/assets/cooking2.jpg";
 
 
 

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { signIn, getProviders  } from "next-auth/react";
-import plate from "@public/assets/plate.png";
+import plate from "/public/assets/plate.png";
 import Image from "next/image";
 import GoogleIcon from "@mui/icons-material/Google";
 
