@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@components/Form";
-import { useSession } from "next-auth/react";
-import { removeFile } from "@app/api/cloudinary/removeFile";
+
 
 const UpdateRecipe = () => {
   const router = useRouter();
@@ -47,7 +46,7 @@ const UpdateRecipe = () => {
         cloudData.append("upload_preset", "webbakery");
         cloudData.append("cloud_name", "dpclhozin");
 
-        await fetch(" https://api.cloudinary.com/v1_1/dpclhozin/image/upload", {
+        await fetch(CLOUDINARY_UPLOAD_URL, {
           method: "post",
           body: cloudData,
         })
