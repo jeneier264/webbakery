@@ -60,13 +60,13 @@ const ProductsPage = () => {
   }, [product]);
 
   return (
-    <div className="w-full h-full relative flex justify-center">
-      {snackbar && <div className="bg-contrast4 fixed top-20 p-3 flex justify-between items-center rounded-2xl animate">
+    <div className="w-full relative flex justify-center bg-primary">
+      {snackbar && <div className="bg-contrast4 fixed top-20 p-3 flex text-white justify-between items-center rounded-2xl animate">
         <button onClick={()=> router.push("/login")}><p className="px-3 font-sen text-[14px] hover:underline">Please log in to add item to the shopping list</p></button>
         <button onClick={()=>setSnackbar(false)}><CloseRoundedIcon sx={{size: 20}}/></button>
       </div>}
       <section className="grid1">
-        {allProducts.map((item, index) => (
+        {allProducts.length>0 ? allProducts.map((item, index) => (
           <ProductCard
             item={item}
             index={index}
@@ -74,7 +74,7 @@ const ProductsPage = () => {
             list={list}
             setSnackbar={setSnackbar}
           />
-        ))}
+        )) : <div className="h-screen bg-constrast5"></div>}
       </section>
     </div>
   );

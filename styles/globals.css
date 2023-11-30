@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -46,7 +47,7 @@ input::-webkit-inner-spin-button {
 }
 
 .navDesktop {
-  @apply flex flex-row justify-between h-[90px] w-full p-6 items-center sm:flex hidden;
+  @apply justify-between h-[90px] w-full p-6 items-center sm:flex flex-row hidden;
 }
 
 .navMobile {
@@ -56,7 +57,9 @@ input::-webkit-inner-spin-button {
 .navlinks {
   @apply font-sen text-[14px] cursor-pointer;
 }
-
+ .underlinedLink { 
+  @apply absolute -bottom-1 left-0 h-[2px] rounded-full bg-contrast2;
+ }
 .footer {
   @apply font-sen text-[14px] p-6 bottom-0;
 }
@@ -69,6 +72,10 @@ input::-webkit-inner-spin-button {
   @apply font-sen text-[14px];
 }
 
+.searchbar {
+  @apply bg-white h-12 w-full px-12 rounded-full focus:outline-none font-sen text-[15px] placeholder-disabled
+}
+
 .bakewareWidget {
   @apply w-[250px] h-[200x] flex flex-col p-3 m-2;
 }
@@ -78,7 +85,7 @@ input::-webkit-inner-spin-button {
 }
 
 .grid1 {
-  @apply grid  sm:grid-cols-3 grid-cols-2 justify-items-center gap-x-12 p-8;
+  @apply grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 justify-items-center gap-x-12 p-8;
 }
 
 .addButton {
@@ -106,7 +113,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dropdownNav {
-  @apply absolute font-sen text-center right-0 top-full mt-3 p-5 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
+  @apply absolute z-10 font-sen text-center right-0 top-full mt-3 p-5 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
 }
 
 .dropdownProd {
@@ -114,7 +121,7 @@ input::-webkit-inner-spin-button {
 }
 
 .dropdownEquip {
-  @apply absolute font-sen z-10 overflow-auto h-[150px] text-center w-full right-0 top-full p-2 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
+  @apply font-sen z-10 overflow-auto h-auto text-center w-full  p-2 rounded-lg bg-white flex flex-col gap-2 justify-center items-center;
 }
 
 .form1 {
@@ -124,11 +131,22 @@ input::-webkit-inner-spin-button {
 .writing-vertical {
   writing-mode: vertical-lr; /* or vertical-rl for right-to-left vertical text */
   text-orientation: upright;
-  @apply font-sen text-primary;
 }
 
-.shadow {
-  box-shadow: 9px 0px 15px 0px rgba(0,0,0,0.1);
+.bookmark {
+ @apply py-2 ml-2 text-center flex justify-center font-sen text-primary text-[15px] rounded-t-xl;
+}
+
+.bookmark.opened {
+ @apply w-[100px];
+}
+
+.bookmark.closed {
+  @apply w-[50px];
+}
+
+.recipeCardWrap {
+  @apply w-[300px]  flex flex-col items-center justify-between rounded-3xl border;
 }
 
 .animate {
@@ -138,6 +156,75 @@ input::-webkit-inner-spin-button {
   animation-fill-mode: backwards;
 }
 
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6d6875;
+  color: #6d6875;
+  box-shadow: 9999px 0 0 -5px;
+  animation: dot-pulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+.dot-pulse::before, .dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6d6875;
+  color: #6d6875;
+}
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px;
+  animation: dot-pulse-before 1.5s infinite linear;
+  animation-delay: 0s;
+}
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px;
+  animation: dot-pulse-after 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px;
+  }
+  60%, 100% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+}
+
+
 @keyframes animate-fade {
   0% {
     opacity: 0;
@@ -145,4 +232,19 @@ input::-webkit-inner-spin-button {
   100% {
     opacity: 1;
   }
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f7ede2;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 1px solid transparent;
 }

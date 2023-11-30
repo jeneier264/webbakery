@@ -1,10 +1,11 @@
-import { Schema, model, models } from 'mongoose';
+import { Schema, model, models } from "mongoose";
 
 const RecipeSchema = new Schema({
   creator: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
   },
+  creatorName: String,
   recipe: String,
   tag: String,
   steps: {
@@ -17,13 +18,10 @@ const RecipeSchema = new Schema({
     type: Array,
     default: [],
   },
-  equipment: {
-    type: Array,
-    default: [],
-  },
+  equipment: [{ type: Schema.Types.ObjectId, ref: "Bakeware" }],
   picture: String,
 });
 
-const Recipe = models.Recipe || model('Recipe', RecipeSchema);
+const Recipe = models.Recipe || model("Recipe", RecipeSchema);
 
 export default Recipe;

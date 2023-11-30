@@ -15,12 +15,12 @@ const LoginPage = () => {
     })();
   }, []);
   return (
-    <div className="bg-primary w-full overflow-hidden flex flex-row justify-evenly">
-      <div className="flex flex-col justify-center w-1/2 p-4">
-        <p className="font-reem text-contrast2 text-[32px] font-bold pb-2">
+    <div className="bg-primary w-full flex flex-row justify-evenly py-6">
+      <div className="flex flex-col justify-center px-6">
+        <p className="font-reem text-contrast2 text-[32px] font-bold ">
           Log in with Google
         </p>
-        <p className="font-sen text-contrast2 text-[13px] pb-6">
+        <p className="font-sen text-contrast2 text-[13px] pb-4">
           Discover more receipes, keep track of items in your shopping list,
           post your own baking ideas and much more!
         </p>

@@ -16,7 +16,7 @@ module.exports = {
         contrast3: "#f6bd60", // yellow
         contrast4: '#f5cac3', // pale pink
         constrast5: "#f7d5a1", //pale green
-        disabled: "#e5e5e5", // gray
+        disabled: "#6d6875", // gray
 
       },
       fontFamily: {

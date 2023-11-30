@@ -2,17 +2,17 @@ import User from "@models/user";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (request, { params }) => {
-    try {
-        await connectToDB()
+  try {
+    await connectToDB();
 
-        const user = await User.findById(params.id);
-        const shoplist = user.shoplist;
+    const user = await User.findById(params.id);
+    const shoplist = user.shoplist;
 
-        return new Response(JSON.stringify(shoplist), { status: 200 })
-    } catch (error) {
-        return new Response(error, { status: 500 })
-    }
-} 
+    return new Response(JSON.stringify(shoplist), { status: 200 });
+  } catch (error) {
+    return new Response(error, { status: 500 });
+  }
+};
 
 export const PATCH = async (request, { params }) => {
   const { item } = await request.json();
@@ -26,17 +26,23 @@ export const PATCH = async (request, { params }) => {
     let updatedList = [];
 
     if (itemInList) {
+      if (item.toBeDeleted) {
+        updatedList = shoplist.filter((el) => el.name !== item.name);
+      } else {
         updatedList = shoplist.map((el) => {
           if (el.name === item.name) {
             return { ...el, amount: item.amount, isChecked: item.isChecked };
           }
           return el;
         });
+      }
     } else {
-      updatedList = [...shoplist, { name: item.name, amount: item.amount, isChecked: item.isChecked }];
+      updatedList = [
+        ...shoplist,
+        { name: item.name, amount: item.amount, isChecked: item.isChecked,  toBeDeleted: false},
+      ];
     }
 
-    
     user.shoplist = updatedList.filter((el) => el.amount !== 0);
 
     await user.save();

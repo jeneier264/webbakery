@@ -4,6 +4,7 @@ import { connectToDB } from "@utils/database";
 export const POST = async (request) => {
   const {
     userId,
+    userName,
     recipe,
     tag,
     steps,
@@ -18,6 +19,7 @@ export const POST = async (request) => {
     await connectToDB();
     const newRecipe = new Recipe({
       creator: userId,
+      creatorName:userName,
       recipe,
       tag,
       steps,

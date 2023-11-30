@@ -23,7 +23,7 @@ const socialMedia = [
 
 const Foot = () => {
   return (
-    <footer className="flex flex-row justify-center h-[90px] w-full p-6 items-center top-full pt-10">
+    <footer className="flex flex-row justify-center h-[90px] w-full p-6 items-center top-full pt-10 bg-primary">
       <div className="flex-col pr-2">
         <h1 className="footer">follow us</h1>
       </div>

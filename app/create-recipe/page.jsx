@@ -45,6 +45,7 @@ const CreateRecipe = () => {
         method: "POST",
         body: JSON.stringify({
           userId: session?.user.id,
+          userName: session?.user.name,
           tag: post.tag,
           recipe: post.recipe,
           steps: post.steps,

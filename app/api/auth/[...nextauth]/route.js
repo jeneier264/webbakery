@@ -5,7 +5,8 @@ import User from "@models/user";
 import { connectToDB } from "@utils/database";
 
 // import { products, bakeware } from "@app/data";
-// import Bakeware from "@models/bakeware";
+// import { recipes } from "@app/data";
+// import Recipe from "@models/recipe";
 // import Product from "@models/product";
 
 const handler = NextAuth({
@@ -30,9 +31,10 @@ const handler = NextAuth({
         // check if user already exists
         const userExists = await User.findOne({ email: profile.email });
 
-        // Run once to insert datat to DB
-        // await Bakeware.insertMany(bakeware);
+        // Run once to insert data to DB
+        // await Recipe.insertMany(recipes);
         // await Product.insertMany(products);
+        // await User.insertMany(users);
 
         // if not, create a new document and save user in MongoDB
         if (!userExists) {

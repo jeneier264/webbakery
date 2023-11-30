@@ -1,7 +1,7 @@
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Foot from "@components/Foot";
-import Provider from "@components/Provider";
+import AppProvider from "@components/AppProvider";
 
 export const metadata = {
   title: "WebBakery",
@@ -11,8 +11,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
+      <head>
+        <link rel='icon' href='/assets/favicon.ico'/>
+      </head>
       <body>
-        <Provider>
+        <AppProvider>
           <div className="main">
             <div />
           </div>
@@ -22,7 +25,7 @@ const RootLayout = ({ children }) => {
             {children}
             <Foot />
           </main>
-        </Provider>
+        </AppProvider>
       </body>
     </html>
   );
