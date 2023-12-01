@@ -57,10 +57,9 @@ const RecipePage = ({ params }) => {
   }, [session?.user.id, post]);
 
   useEffect(() => {
-    if(!bakeware.length){
+    if(bakeware.length>0){
       fetchBakeware();
     }
-    console.log(bakeware);
     fetchPost();
   }, []);
 
