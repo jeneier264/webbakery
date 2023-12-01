@@ -60,7 +60,7 @@ const RecipePage = ({ params }) => {
     if(!bakeware.length){
       fetchBakeware();
     }
-    consolo.log(bakeware);
+    console.log(bakeware);
     fetchPost();
   }, []);
 
