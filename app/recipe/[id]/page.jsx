@@ -61,6 +61,7 @@ const RecipePage = ({ params }) => {
       fetchBakeware();
     }
     fetchPost();
+    console.log(bakeware);
   }, []);
 
   return (
