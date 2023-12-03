@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
@@ -13,8 +12,15 @@ const imageMimeType = /image\/(png|jpg|jpeg)/i;
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   const [dropdown, setDropdown] = useState(-1);
   const measurments = ["", "cup", "tsp", "tbsp", "gr", "ml"];
-  const allBakeware = useSelector((state) => state.session.bakeware);
   const [file, setFile] = useState(null);
+  const [allBakeware, setAllBakeware] = useState([]);
+
+  const fetchBakeware = async () => {
+    const response = await fetch("/api/bakeware");
+    const data = await response.json();
+
+    setAllBakeware(data);
+  };
 
   const handleTagsInput = (event) => {
     setPost({ ...post, tag: event.target.value });
@@ -103,6 +109,10 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       }
     };
   }, [file]);
+
+  useEffect(() => {
+    fetchBakeware();    
+}, []);
 
   return (
     <section className="w-full bg-primary">
