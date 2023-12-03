@@ -191,13 +191,13 @@ const Recipe = ({ recipe, isAuthor = false, handleDelete, handleEdit }) => {
         {equipment && (
           <div className="flex flex-col w-full justify-between gap-20 p-8">
             <h1 className="font-reem text-contrast1 text-[20px]">Equipment</h1>
-            <div className="w-full flex overflow-x-auto sm:justify-center sm:gap-12">
+            <div className="w-full flex overflow-x-auto sm:justify-center gap-12">
               {equipment.map((item) => (
                 <div className="flex flex-col justify-center items-center w-[200px] ">
                   <a target="_blank" rel="noreferrer" href={item.link}>
-                    <div className="transition duration-300 ease-in-out hover:translate-y-6">
+                    <div className=" w-[100px] transition duration-300 ease-in-out hover:translate-y-6">
                       <img
-                        className="h-[180px] w-[200px] object-contain"
+                        className=" object-contain"
                         src={item.picture}
                         alt="bakeware"
                       />

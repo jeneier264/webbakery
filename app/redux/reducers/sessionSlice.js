@@ -12,4 +12,4 @@ const sessionSlice = createSlice({
 }})
 
 export const {setBakeware} = sessionSlice.actions;
-export default sessionSlice.reducer;
+export default sessionSlice.reducer; 

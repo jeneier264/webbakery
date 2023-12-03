@@ -1,4 +1,5 @@
 import { Schema, model, models } from "mongoose";
+import Bakeware from "./bakeware";
 
 const RecipeSchema = new Schema({
   creator: {

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setBakeware } from "@app/redux/reducers/sessionSlice";
 import Recipe from "@components/Recipe";
 import { useRouter } from "next/navigation";
+import { CompressOutlined } from "@mui/icons-material";
 
 const RecipePage = ({ params }) => {
   const dispatch = useDispatch();
@@ -57,9 +58,10 @@ const RecipePage = ({ params }) => {
   }, [session?.user.id, post]);
 
   useEffect(() => {
-    if(!bakeware.length){
-      fetchBakeware();
-    }
+    // if(!bakeware.length){
+    //   console.log("there was no fetched bakeware");
+    //   fetchBakeware();
+    // }
     fetchPost();
   }, []);
 

@@ -19,7 +19,6 @@ const RootLayout = ({ children }) => {
           <div className="main">
             <div />
           </div>
-
           <main className="bg-primary w-full overflow-hidden">
             <Nav />
             {children}
