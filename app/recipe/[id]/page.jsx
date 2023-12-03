@@ -62,6 +62,9 @@ const RecipePage = ({ params }) => {
     //   console.log("there was no fetched bakeware");
     //   fetchBakeware();
     // }
+    if(bakeware.length>0){
+      fetchBakeware();
+    }
     fetchPost();
   }, []);
 
