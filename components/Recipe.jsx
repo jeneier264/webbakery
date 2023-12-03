@@ -195,7 +195,7 @@ const Recipe = ({ recipe, isAuthor = false, handleDelete, handleEdit }) => {
               {equipment.map((item) => (
                 <div className="flex flex-col justify-center items-center w-[200px] ">
                   <a target="_blank" rel="noreferrer" href={item.link}>
-                    <div className=" w-[100px] transition duration-300 ease-in-out hover:translate-y-6">
+                    <div className=" w-[150px] transition duration-300 ease-in-out hover:translate-y-6">
                       <img
                         className=" object-contain"
                         src={item.picture}

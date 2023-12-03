@@ -1,15 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { useSelector, useDispatch } from "react-redux";
-import { setBakeware } from "@app/redux/reducers/sessionSlice";
 import Recipe from "@components/Recipe";
 import { useRouter } from "next/navigation";
-import { CompressOutlined } from "@mui/icons-material";
 
 const RecipePage = ({ params }) => {
-  const dispatch = useDispatch();
-  const { bakeware } = useSelector((state) => state.session);
   const [post, setPost] = useState();
   const { data: session } = useSession();
   const [isAuthor, setIsAuthor] = useState(false);
@@ -20,10 +15,6 @@ const RecipePage = ({ params }) => {
   };
 
   const handleDelete = async (hasConfirmed) => {
-    // const hasConfirmed = confirm(
-    //   "Are you sure you want to delete this prompt?"
-    // );
-
     if (hasConfirmed) {
       try {
         await fetch(`/api/recipe/${post._id.toString()}`, {
@@ -42,13 +33,6 @@ const RecipePage = ({ params }) => {
     const recipe = await recipeResponse.json();
 
     setPost(recipe);
-  };
-
-  const fetchBakeware = async () => {
-    const response = await fetch("/api/bakeware");
-    const data = await response.json();
-
-    dispatch(setBakeware(data));
   };
 
   useEffect(() => {
